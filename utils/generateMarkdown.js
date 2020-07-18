@@ -3,34 +3,32 @@ module.exports.generateMarkdown = function generateMarkdown(data) {
   //console.log(data);
 return `
 
-# Table of Contents
-1.[Title] (#title)
-2.[Description] (#description)
-3.[Installation] (#install)
-4.[Bugs] (#bugs)
-5.[Support] (#contact)
-6.[Contribution] (#contribution)
-7.[License] (#license)
-
 # ${data.title}
     
-#### Created on ${data.date}
+#Created on ${data.date}
 
-#### By ${data.developer}
+# By ${data.developer}
 
-## ${data.description}
+## Description 
+${data.description}
     
-## ${data.install}
+## Installation
+${data.install}
     
-## ${data.bugs}
+## Known bugs
+${data.bugs}
     
-## ${data.contact}
+## Contact Information
+${data.contact}
     
-## ${data.tech}
+## Technologies Used 
+${data.tech}
     
-## ${data.contribution}
+## Contribution
+${data.contribution}
     
-### ${data.license}
+### License
+${data.license}
 
 `;} 
 
