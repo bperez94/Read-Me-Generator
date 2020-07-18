@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-//const util = require("util");
 const {genMarkdown, generateMarkdown} = require('./utils/generateMarkdown.js');
 
 
@@ -16,6 +15,11 @@ function UserPrompt() {
             type: "input",
             name:"date",
             Message:"What day did you creat your application?", 
+        },
+        {
+            type:"input",
+            name:"developer",
+            message:"Provide name of developer",
         },
         {
             type: "input",
@@ -48,9 +52,14 @@ function UserPrompt() {
             Message:"Provide a link to you deployed application",
         },
         {
-            type: "input",
+            type: "list",
             name:"license",
             Message:"Provide you copy right",// also needs list with options for license
+            choices:["MIT",
+                    "GPL",
+                    "APACHE",
+                    "GPL"
+        ]
         }
     ]);
 }
@@ -60,11 +69,11 @@ UserPrompt()
  .then(function writeToFile(data) {
  //   return writeFileAsync("index.html",html);
  //console.log(data);
- let htmlString = generateMarkdown(data);
- console.log(htmlString);
- fs.writeFile("index.html",htmlString,function (err) {
+ let readMeString = generateMarkdown(data);
+ //console.log(readMeString);
+ fs.writeFile("README.MD",readMeString,function (err) {
      if (err) throw err;
-     console.log("hi");
+ 
  })
     
 
