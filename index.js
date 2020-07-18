@@ -20,7 +20,7 @@ function UserPrompt() {
         {
             type: "input",
             name:"decription",
-            Message:"Describe what your apllication does and how it works?", 
+            Message:"Describe what your apllication does?", 
         },
         {
             type: "input",
@@ -48,9 +48,15 @@ function UserPrompt() {
             Message:"Provide a link to you deployed application",
         },
         {
-            type: "input",
+            type: "list",
             name:"License",
-            Message:"Provide you copy right",// also needs list with options for license
+            Message:"Provide you copy right",
+            choices: [
+                "MIT",
+                "Apache",
+                "BSD3",
+                "GNU General Public"
+            ]
         }
         ]);
     }
