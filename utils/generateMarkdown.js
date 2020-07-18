@@ -1,6 +1,6 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +11,28 @@ function generateMarkdown(data) {
 <body>
     <h1>Read Me</h1>
     <br>
-    <h2><!--Project Title--></h2>
+    <h2><!--Project Title-->${data.title}</h2>
     <br>
-    <h2><!--creadted date--></h2>
+    <h2><!--creadted date-->${data.date}</h2>
     <br>
-    <h2><!--description--></h2>
+    <h2><!--description-->${data.description}</h2>
     <br>
-    <h2><!--setup/install requirements--></h2>
+    <h2><!--setup/install requirements-->${data.install}</h2>
     <br>
-    <h2><!--known Bugs--></h2>
+    <h2><!--known Bugs-->${data.bugs}</h2>
     <br>
-    <h2><!--support and contact details--></h2>
+    <h2><!--support and contact details-->${data.contact}</h2>
     <br>
-    <h2><!--Technologies Used--></h2>
+    <h2><!--Technologies Used-->tech</h2>
     <br>
-    <h2><!--Contribution Guildlines--></h2>
+    <h2><!--Contribution Guildlines-->${data.contribution}</h2>
     <br>
-    <h2><!--License--></h2>
+    <h2><!--License-->${data.license}</h2>
 </body>
 </html>
 `;
 }
 
-module.exports = {generateMarkdown};
+module.exports = {
+  generateMarkdown:generateMarkdown
+};
