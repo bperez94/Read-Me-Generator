@@ -23,7 +23,7 @@ brandonp940@gmail.com
 JAVASCRIPT, NODE.JS
     
 ## Contribution
-https://bperez94.github.io/Read-Me-Generator/
+https://github.com/bperez94/Read-Me-Generator
     
 ### License
 MIT
