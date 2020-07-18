@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
-const genMarkdown = require('./utils/generateMarkdown');
+//const util = require("util");
+const {genMarkdown, generateMarkdown} = require('./utils/generateMarkdown.js');
 
-const writeFileAsync = util.promisify(fs.writeFile);
+
 // array of questions for user
 function UserPrompt() {
     return inquirer.prompt([
@@ -19,8 +19,8 @@ function UserPrompt() {
         },
         {
             type: "input",
-            name:"decription",
-            Message:"Describe what your apllication does?", 
+            name:"description",
+            Message:"Describe what your apllication does and how it works?", 
         },
         {
             type: "input",
@@ -29,7 +29,7 @@ function UserPrompt() {
         },
         {
             type: "input",
-            name:"Bugs",
+            name:"bugs",
             Message:"Are there any bugs or pronblems with the apllication?",
         },
         {
@@ -48,27 +48,26 @@ function UserPrompt() {
             Message:"Provide a link to you deployed application",
         },
         {
-            type: "list",
-            name:"License",
-            Message:"Provide you copy right",
-            choices: [
-                "MIT",
-                "Apache",
-                "BSD3",
-                "GNU General Public"
-            ]
+            type: "input",
+            name:"license",
+            Message:"Provide you copy right",// also needs list with options for license
         }
-        ]);
-    }
-    
-
-
+    ]);
+}
 
 UserPrompt()
     // function to write README file
- .then(function writeToFile(genMarkdown,data) {
-    var html = genMarkdown(data);
-    return writeFileAsync("index.html",html);
+ .then(function writeToFile(data) {
+ //   return writeFileAsync("index.html",html);
+ //console.log(data);
+ let htmlString = generateMarkdown(data);
+ console.log(htmlString);
+ fs.writeFile("index.html",htmlString,function (err) {
+     if (err) throw err;
+     console.log("hi");
+ })
+    
+
 })
 .then(function() {
     console.log("You completed your read me!")
@@ -78,3 +77,12 @@ UserPrompt()
 });
 
 
+// function to initialize program
+function init() {
+//console.log("hello world");
+//console.log("genMarkdown =" + generateMarkdown);
+UserPrompt()
+}
+
+// function call to initialize program
+init();
