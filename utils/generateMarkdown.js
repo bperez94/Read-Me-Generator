@@ -1,36 +1,37 @@
 // function to generate markdown for README
 module.exports.generateMarkdown = function generateMarkdown(data) {
-  console.log(data);
+  //console.log(data);
 return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Read Me</title>
-</head>
-<body>
-    <h1>Read Me</h1>
-    <br>
-    <h2><!--Project Title-->${data.title}</h2>
-    <br>
-    <h2><!--creadted date-->${data.date}</h2>
-    <br>
-    <h2><!--description-->${data.description}</h2>
-    <br>
-    <h2><!--setup/install requirements-->${data.install}</h2>
-    <br>
-    <h2><!--known Bugs-->${data.bugs}</h2>
-    <br>
-    <h2><!--support and contact details-->${data.contact}</h2>
-    <br>
-    <h2><!--Technologies Used-->${data.tech}</h2>
-    <br>
-    <h2><!--Contribution Guildlines-->${data.contribution}</h2>
-    <br>
-    <h2><!--License-->${data.license}</h2>
-</body>
-</html>
+
+# Table of Contents
+1.[Title] (#title)
+2.[Description] (#description)
+3.[Installation] (#install)
+4.[Bugs] (#bugs)
+5.[Support] (#contact)
+6.[Contribution] (#contribution)
+7.[License] (#license)
+
+# ${data.title}
+    
+#### Created on ${data.date}
+
+#### By ${data.developer}
+
+## ${data.description}
+    
+## ${data.install}
+    
+## ${data.bugs}
+    
+## ${data.contact}
+    
+## ${data.tech}
+    
+## ${data.contribution}
+    
+### ${data.license}
+
 `;} 
 
 
